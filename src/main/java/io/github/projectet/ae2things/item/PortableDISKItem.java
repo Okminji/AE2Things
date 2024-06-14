@@ -12,12 +12,12 @@ import appeng.api.storage.cells.CellState;
 import appeng.api.upgrades.IUpgradeInventory;
 import appeng.api.upgrades.IUpgradeableItem;
 import appeng.api.upgrades.UpgradeInventories;
-import appeng.block.AEBaseBlockItemChargeable;
 import appeng.core.AEConfig;
 import appeng.core.AELog;
 import appeng.core.definitions.AEItems;
 import appeng.core.localization.PlayerMessages;
 import appeng.hooks.AEToolItem;
+import appeng.items.AEBaseItem;
 import appeng.items.contents.CellConfig;
 import appeng.items.materials.StorageComponentItem;
 import appeng.items.tools.powered.PortableCellItem;
@@ -134,7 +134,7 @@ public class PortableDISKItem extends AEBasePoweredItem implements IDISKCellItem
                 var ingredientStack = ingredient.getItems()[0].copy();
 
                 // Dump remaining energy into whatever can accept it
-                if (remainingEnergy > 0 && ingredientStack.getItem() instanceof AEBaseBlockItemChargeable chargeable) {
+                if (remainingEnergy > 0 && ingredientStack.getItem() instanceof AEBasePoweredItem chargeable) {
                     remainingEnergy = chargeable.injectAEPower(ingredientStack, remainingEnergy, Actionable.MODULATE);
                 }
 
@@ -146,7 +146,7 @@ public class PortableDISKItem extends AEBasePoweredItem implements IDISKCellItem
                 playerInventory.placeItemBackInInventory(upgrade);
             }
         } else {
-            player.sendMessage(PlayerMessages.OnlyEmptyCellsCanBeDisassembled.text(), Util.NIL_UUID);
+            player.displayClientMessage(PlayerMessages.OnlyEmptyCellsCanBeDisassembled.text(), false);
         }
 
         return true;

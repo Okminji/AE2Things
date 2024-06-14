@@ -20,15 +20,12 @@
     ],
     "ae2:client": [
       "io.github.projectet.ae2things.client.AE2ThingsClient"
-    ],
-    "rei_plugins": [
-      "io.github.projectet.ae2things.compat.REI"
     ]
   },
   "depends": {
-    "fabricloader": ">=0.12.12",
+    "fabricloader": ">=0.15.11",
     "fabric": "*",
-    "ae2": ">=11.5.0",
-    "minecraft": "1.18.2"
+    "ae2": ">=15.2.0",
+    "minecraft": "1.20.1"
   }
 }
