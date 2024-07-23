@@ -42,7 +42,7 @@ public class AETItems {
     public static final DISKDrive DISK_DRIVE_4K = registerCell(AETItems.MODEL_DISK_DRIVE_4K, new DISKDrive(AEItems.CELL_COMPONENT_4K, 4, 1.0f), "disk_drive_4k");
     public static final DISKDrive DISK_DRIVE_16K = registerCell(AETItems.MODEL_DISK_DRIVE_16K, new DISKDrive(AEItems.CELL_COMPONENT_16K, 16, 1.5f), "disk_drive_16k");
     public static final DISKDrive DISK_DRIVE_64K = registerCell(AETItems.MODEL_DISK_DRIVE_64K, new DISKDrive(AEItems.CELL_COMPONENT_64K, 64, 2.0f), "disk_drive_64k");
-    public static final DISKDrive DISK_DRIVE_256K = registerCell(AETItems.MODEL_DISK_DRIVE_256K, new DISKDrive(AEItems.CELL_COMPONENT_256K, 64, 2.0f), "disk_drive_256k");
+    public static final DISKDrive DISK_DRIVE_256K = registerCell(AETItems.MODEL_DISK_DRIVE_256K, new DISKDrive(AEItems.CELL_COMPONENT_256K, 256, 2.5f), "disk_drive_256k");
 
     public static final StorageComponentItem CELL_COMPONENT_1024K = item(new StorageComponentItem(DEFAULT_SETTINGS.stacksTo(64), 1024),"cell_component_1024k");
     public static final StorageComponentItem CELL_COMPONENT_4096K = item(new StorageComponentItem(DEFAULT_SETTINGS.stacksTo(64), 4096),"cell_component_4096k");
