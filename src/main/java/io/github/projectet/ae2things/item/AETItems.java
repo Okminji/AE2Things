@@ -1,6 +1,7 @@
 package io.github.projectet.ae2things.item;
 
 import appeng.api.client.StorageCellModels;
+import appeng.api.upgrades.Upgrades;
 import appeng.api.stacks.AEKeyType;
 import appeng.core.definitions.AEItems;
 import appeng.items.materials.StorageComponentItem;
@@ -57,7 +58,7 @@ public class AETItems {
     public static final Item PORTABLE_DISK_4K = registerPortableDISK(AETItems.MODEL_DISK_DRIVE_4K, "portable_disk_4k", AEItems.CELL_COMPONENT_4K.asItem());
     public static final Item PORTABLE_DISK_16K = registerPortableDISK(AETItems.MODEL_DISK_DRIVE_16K, "portable_disk_16k", AEItems.CELL_COMPONENT_16K.asItem());
     public static final Item PORTABLE_DISK_64K = registerPortableDISK(AETItems.MODEL_DISK_DRIVE_64K, "portable_disk_64k", AEItems.CELL_COMPONENT_64K.asItem());
-    public static final Item PORTABLE_DISK_64K = registerPortableDISK(AETItems.MODEL_DISK_DRIVE_64K, "portable_disk_256k", AEItems.CELL_COMPONENT_256K.asItem());
+    public static final Item PORTABLE_DISK_256K = registerPortableDISK(AETItems.MODEL_DISK_DRIVE_256K, "portable_disk_256k", AEItems.CELL_COMPONENT_256K.asItem());
 
     public static final Item PORTABLE_ITEM_1024K = registerPortableItemCell("portable_item_cell_1024k", SIZE_1024K);
     public static final Item PORTABLE_ITEM_4096K = registerPortableItemCell("portable_item_cell_4096k", SIZE_4096K);
