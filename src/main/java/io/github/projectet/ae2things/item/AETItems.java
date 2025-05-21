@@ -53,11 +53,11 @@ public class AETItems {
     public static final BasicStorageCell FLUID_CELL_1024K = registerCell(new ResourceLocation("ae2:block/drive/cells/64k_fluid_cell"), new BasicStorageCell(DEFAULT_SETTINGS.stacksTo(1), CELL_COMPONENT_1024K, AEItems.FLUID_CELL_HOUSING, 3.0f, 1024, 8192,5, AEKeyType.fluids()),"fluid_storage_cell_1024k");
     public static final BasicStorageCell FLUID_CELL_4096K = registerCell(new ResourceLocation("ae2:block/drive/cells/64k_fluid_cell"), new BasicStorageCell(DEFAULT_SETTINGS.stacksTo(1), CELL_COMPONENT_4096K, AEItems.FLUID_CELL_HOUSING, 3.5f, 4096, 32768,5, AEKeyType.fluids()),"fluid_storage_cell_4096k");
 
-    public static final Item PORTABLE_DISK_1K = registerPortableDISK("portable_disk_1k", AEItems.CELL_COMPONENT_1K.asItem());
-    public static final Item PORTABLE_DISK_4K = registerPortableDISK("portable_disk_4k", AEItems.CELL_COMPONENT_4K.asItem());
-    public static final Item PORTABLE_DISK_16K = registerPortableDISK("portable_disk_16k", AEItems.CELL_COMPONENT_16K.asItem());
-    public static final Item PORTABLE_DISK_64K = registerPortableDISK("portable_disk_64k", AEItems.CELL_COMPONENT_64K.asItem());
-    public static final Item PORTABLE_DISK_256K = registerPortableDISK("portable_disk_256k", AEItems.CELL_COMPONENT_256K.asItem());
+    public static final Item PORTABLE_DISK_1K = registerPortableDISK(AETItems.MODEL_DISK_DRIVE_1K, "portable_disk_1k", AEItems.CELL_COMPONENT_1K.asItem());
+    public static final Item PORTABLE_DISK_4K = registerPortableDISK(AETItems.MODEL_DISK_DRIVE_4K, "portable_disk_4k", AEItems.CELL_COMPONENT_4K.asItem());
+    public static final Item PORTABLE_DISK_16K = registerPortableDISK(AETItems.MODEL_DISK_DRIVE_16K, "portable_disk_16k", AEItems.CELL_COMPONENT_16K.asItem());
+    public static final Item PORTABLE_DISK_64K = registerPortableDISK(AETItems.MODEL_DISK_DRIVE_64K, "portable_disk_64k", AEItems.CELL_COMPONENT_64K.asItem());
+    public static final Item PORTABLE_DISK_64K = registerPortableDISK(AETItems.MODEL_DISK_DRIVE_64K, "portable_disk_256k", AEItems.CELL_COMPONENT_256K.asItem());
 
     public static final Item PORTABLE_ITEM_1024K = registerPortableItemCell("portable_item_cell_1024k", SIZE_1024K);
     public static final Item PORTABLE_ITEM_4096K = registerPortableItemCell("portable_item_cell_4096k", SIZE_4096K);
@@ -78,13 +78,25 @@ public class AETItems {
     }
 
     private static <T extends Item> T registerCell(ResourceLocation model, T item, String id) {
+        Upgrades.add(AEItems.FUZZY_CARD, item, 1, "gui.ae2things.upgrade.disk");
+        Upgrades.add(AEItems.VOID_CARD, item, 1, "gui.ae2things.upgrade.disk");
+        Upgrades.add(AEItems.INVERTER_CARD, item, 1, "gui.ae2things.upgrade.disk");
+        Upgrades.add(AEItems.EQUAL_DISTRIBUTION_CARD, item, 1, "gui.ae2things.upgrade.disk");
         StorageCellModels.registerModel(item, model);
 
         return item(item, id);
     }
 
-    private static Item registerPortableDISK(String id, StorageComponentItem sizeComponent) {
-        return item(new PortableDISKItem(sizeComponent, DEFAULT_SETTINGS.stacksTo(1).fireResistant()), id);
+    private static Item registerPortableDISK(ResourceLocation model, String id, StorageComponentItem sizeComponent) {
+        var diskItem = item(new PortableDISKItem(sizeComponent, DEFAULT_SETTINGS.stacksTo(1).fireResistant()), id);
+        Upgrades.add(AEItems.FUZZY_CARD, diskItem, 1, "gui.ae2things.upgrade.portabledisk");
+        Upgrades.add(AEItems.VOID_CARD, diskItem, 1, "gui.ae2things.upgrade.portabledisk");
+        Upgrades.add(AEItems.INVERTER_CARD, diskItem, 1, "gui.ae2things.upgrade.portabledisk");
+        Upgrades.add(AEItems.EQUAL_DISTRIBUTION_CARD, diskItem, 1, "gui.ae2things.upgrade.portabledisk");
+        Upgrades.add(AEItems.ENERGY_CARD, diskItem, 2, "gui.ae2things.upgrade.portabledisk");
+        StorageCellModels.registerModel(diskItem, model);
+
+        return diskItem;
     }
 
     private static Item registerPortableItemCell(String id, StorageTier tier) {
