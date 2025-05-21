@@ -22,6 +22,8 @@
   "item.ae2things.portable_fluid_cell_4096k": "4096k Portable Fluid Cell",
   "block.ae2things.advanced_inscriber": "Advanced Inscriber",
   "block.ae2things.crystal_growth": "Crystal Growth Chamber",
+  "gui.ae2things.upgrade.portabledisk": "Portable DISKs",
+  "gui.ae2things.upgrade.disk": "ME DISKs",
   "itemGroup.ae2things.item_group": "AE2Things",
   "gui.ae2things.advanced_inscriber": "Advanced Inscriber",
   "gui.ae2things.crystal_growth": "Crystal Growth Chamber",
